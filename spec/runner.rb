@@ -13,7 +13,7 @@ expectations = {
 
 Dir.glob(path_to_src + '*.*') do |src_path|
   expectations.each do |spec_name, expected|
-    extracted = `"#{src_path}" "#{path_to_fixtures}/#{spec_name}"`
+    extracted = `"#{src_path}" "#{path_to_fixtures}/#{spec_name}"`.chomp
     unless extracted == expected
       failures[src_path] ||= {}
       failures[src_path][spec_name] = extracted
