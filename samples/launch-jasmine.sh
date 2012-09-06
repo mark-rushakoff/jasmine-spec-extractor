@@ -15,5 +15,7 @@ if [ -z "$1" ]; then
   $OPEN_BROWSER_COMMAND "$JASMINE_ROOT"
 else
   SPEC=$(${EXTRACT_COMMAND} "$1")
+
+  # At least on OSX and Linux, I haven't seen a need to URL-encode this manually
   $OPEN_BROWSER_COMMAND "${JASMINE_ROOT}${SPEC_PREFIX}${SPEC}"
 fi
